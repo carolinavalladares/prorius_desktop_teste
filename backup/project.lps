@@ -9,7 +9,7 @@
         <Filename Value="project.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="43"/>
+        <UsageCount Value="49"/>
       </Unit>
       <Unit>
         <Filename Value="menu.pas"/>
@@ -18,94 +18,26 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="151"/>
-        <CursorPos X="12" Y="165"/>
-        <UsageCount Value="43"/>
+        <TopLine Value="107"/>
+        <CursorPos X="3" Y="110"/>
+        <UsageCount Value="49"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\..\AppData\Local\lazarus\onlinepackagemanager\packages\Indy10\Protocols\IdSSLOpenSSL.pas"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
         <Filename Value="menu.lfm"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="125" Column="17" TopLine="110"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="126" Column="17" TopLine="111"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="125" Column="17" TopLine="110"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="124" Column="17" TopLine="109"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="118" Column="28" TopLine="111"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="140" Column="63" TopLine="121"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="96" Column="39" TopLine="50"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="9" Column="55"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="96" Column="53" TopLine="55"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="114" Column="5" TopLine="94"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="113" Column="15" TopLine="96"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="109" Column="4" TopLine="89"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="103" Column="10" TopLine="94"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="111" Column="39" TopLine="95"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="112" Column="25" TopLine="96"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="109" Column="20" TopLine="96"/>
-      </Position>
-      <Position>
-        <Filename Value="menu.pas"/>
-        <Caret Line="106" Column="42" TopLine="96"/>
-      </Position>
       <Position>
         <Filename Value="menu.pas"/>
         <Caret Line="98" Column="5" TopLine="95"/>
@@ -157,6 +89,74 @@
       <Position>
         <Filename Value="menu.pas"/>
         <Caret Line="155" Column="4" TopLine="131"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="138" Column="7" TopLine="126"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="35" Column="47" TopLine="23"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="56" TopLine="45"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="58" Column="13" TopLine="46"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="60" TopLine="46"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="34" Column="3" TopLine="40"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="39" Column="48" TopLine="25"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="180" Column="5" TopLine="170"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="82" Column="28" TopLine="74"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="79" Column="38" TopLine="76"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="83" Column="28" TopLine="71"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="76" Column="64" TopLine="67"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="81" Column="61" TopLine="74"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="86" Column="43" TopLine="80"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="103" Column="98" TopLine="86"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="86" Column="12" TopLine="79"/>
+      </Position>
+      <Position>
+        <Filename Value="menu.pas"/>
+        <Caret Line="178" Column="7" TopLine="165"/>
       </Position>
     </JumpHistory>
     <RunParams>

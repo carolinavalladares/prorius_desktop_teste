@@ -26,10 +26,13 @@ type
     passwordLabel: TLabel;
     loginGroup: TGroupBox;
     output: TMemo;
+    procedure buscarCEPGroupClick(Sender: TObject);
     procedure fetchBtnClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure loginBtnClick(Sender: TObject);
     procedure quitBtnClick(Sender: TObject);
+
+
   private
 
   public
@@ -49,11 +52,110 @@ var
 
 
 implementation
+procedure fetchCEPData(CEP:string); forward;
+procedure isAlphaNumeric(password:string); forward;
 
 {$R *.lfm}
 
 { TForm1 }
 
+// Eventos
+
+procedure TForm1.fetchBtnClick(Sender: TObject);
+var CEP : string;
+begin
+  CEP := Trim(CEPInput.Text);
+   //limpar TMemo
+   output.Lines.Clear;
+
+   // validar se CEP foi inserido
+   if (CEP = '') then
+       ShowMessage('Por favor, insira o CEP que deseja buscar.')
+   else
+       //validar se CEP foi inserido corretamente
+          if not(Length(CEP) = 8) then
+               ShowMessage('O CEP deve ter 8 caracteres entre 0 e 9.')
+   else
+       begin
+          // buscar dados
+        fetchCEPData(CEP);
+
+        if (json.FindPath('erro') = nil) then
+           begin
+             //exibir dados
+             output.Lines.Add('Resultado: ');
+             output.Lines.Add('');
+             output.Lines.Add('CEP: ' + json.FindPath('cep').AsString);
+             output.Lines.Add('Localidade: ' + json.FindPath('localidade').AsString);
+             output.Lines.Add('Bairro: ' + json.FindPath('bairro').AsString);
+             output.Lines.Add('Logradouro: ' + json.FindPath('logradouro').AsString);
+             output.Lines.Add('Complemento: ' + json.FindPath('complemento').AsString);
+             output.Lines.Add('UF: ' + json.FindPath('uf').AsString);
+             output.Lines.Add('DDD: ' + json.FindPath('ddd').AsString);
+             output.Lines.Add('IBGE: ' + json.FindPath('ibge').AsString);
+             output.Lines.Add('SIAFI: ' + json.FindPath('siafi').AsString);
+             output.Lines.Add('GIA: ' + json.FindPath('gia').AsString);
+           end
+        else
+            output.Lines.Add('Ops... Parece que algo deu errado... Por favor, tente novamente.');
+       end;
+
+   // limpar TEdit
+   CEPInput.Text := '';
+
+end;
+
+procedure TForm1.buscarCEPGroupClick(Sender: TObject);
+begin
+
+end;
+
+procedure TForm1.loginBtnClick(Sender: TObject);
+var username:string;
+ password:string;
+begin
+  username := Trim(usernameInput.Text);
+  password:=Trim(passwordInput.Text);
+
+   //validar se dados foram inseridos
+  if (username = '') or (password = '') then
+
+     ShowMessage('Por favor, digite o nome de usuário e a senha.')
+  else
+  //validar senha tem no mínimo 6 caracteres
+      if Length(password) < 6 then
+         ShowMessage('A senha deve conter no mínimo 6 caracteres.')
+  else
+    begin
+      //validar senha
+       isAlphanumeric(password);
+       if not(passwordIsValid) then
+
+          ShowMessage('A senha deve conter letras e números apenas.')
+       else
+       begin
+
+          ShowMessage('Login realizado com sucesso. Olá, ' + username + '.')
+       end;
+     end;
+
+   // limpar TEdit
+  passwordInput.Text := '';
+
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  // limpar TMemo
+  output.Lines.Clear;
+end;
+
+procedure TForm1.quitBtnClick(Sender: TObject);
+begin
+  Close;
+end;
+
+//Funções
 procedure fetchCEPData(CEP:string);
 begin
     // Instanciando
@@ -73,9 +175,6 @@ begin
       // Realizando Requisição
       HTTP.Get(url, ResponseStream);
       ResponseContent := UTF8Encode(ResponseStream.DataString);
-
-      // Mostrando Resquisição com ShowMessage
-      //ShowMessage(ResponseContent);
 
       //armazenar resultado como json
       json:= GetJSON(ResponseContent);
@@ -134,89 +233,6 @@ begin
      end;
 
 end;
-
-procedure TForm1.fetchBtnClick(Sender: TObject);
-var CEP : string;
-begin
-  CEP := Trim(CEPInput.Text);
-   //limpar TMemo
-   output.Lines.Clear;
-
-   // validar se CEP foi inserido
-   if not (CEP = '') then
-      begin
-         // buscar dados
-        fetchCEPData(CEP);
-
-         //exibir dados
-         output.Lines.Add('Resultado: ');
-         output.Lines.Add('CEP: ' + json.FindPath('cep').AsString);
-         output.Lines.Add('Localidade: ' + json.FindPath('localidade').AsString);
-         output.Lines.Add('Bairro: ' + json.FindPath('bairro').AsString);
-         output.Lines.Add('Logradouro: ' + json.FindPath('logradouro').AsString);
-         output.Lines.Add('Complemento: ' + json.FindPath('complemento').AsString);
-         output.Lines.Add('UF: ' + json.FindPath('uf').AsString);
-         output.Lines.Add('DDD: ' + json.FindPath('ddd').AsString);
-         output.Lines.Add('IBGE: ' + json.FindPath('ibge').AsString);
-         output.Lines.Add('SIAFI: ' + json.FindPath('siafi').AsString);
-         output.Lines.Add('GIA: ' + json.FindPath('gia').AsString);
-      end
-   else
-       begin
-          ShowMessage('Por favor insira o CEP que deseja buscar');
-       end;
-
-   // limpar TEdit
-   CEPInput.Text := '';
-
-end;
-
-procedure TForm1.FormCreate(Sender: TObject);
-begin
-  // limpar TMemo
-  output.Lines.Clear;
-end;
-
-procedure TForm1.loginBtnClick(Sender: TObject);
-var username:string;
- password:string;
-begin
-  username := Trim(usernameInput.Text);
-  password:=Trim(passwordInput.Text);
-
-   //validar se dados foram inseridos
-  if (username = '') or (password = '') then
-
-     ShowMessage('Por favor digite o nome de usuário e a senha.')
-  else
-  //validar senha tem no mínimo 6 caracteres
-      if Length(password) < 6 then
-         ShowMessage('A senha conter no mínimo 6 caracteres')
-  else
-    begin
-      //validar senha
-       isAlphanumeric(password);
-       if not(passwordIsValid) then
-
-          ShowMessage('A senha deve conter letras e números apenas.')
-       else
-       begin
-
-          ShowMessage('Login realizado com sucesso. Olá, ' + username + '.')
-       end;
-     end;
-
-   // limpar TEdit
-  passwordInput.Text := '';
-
-end;
-
-procedure TForm1.quitBtnClick(Sender: TObject);
-begin
-  Close;
-end;
-
-
 
 end.
 
