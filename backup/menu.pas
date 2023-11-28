@@ -70,7 +70,7 @@ begin
 
    // validar se CEP foi inserido
    if (CEP = '') then
-       ShowMessage('Por favor insira o CEP que deseja buscar.')
+       ShowMessage('Por favor, insira o CEP que deseja buscar.')
    else
        //validar se CEP foi inserido corretamente
           if not(Length(CEP) = 8) then
@@ -120,11 +120,11 @@ begin
    //validar se dados foram inseridos
   if (username = '') or (password = '') then
 
-     ShowMessage('Por favor digite o nome de usuário e a senha.')
+     ShowMessage('Por favor, digite o nome de usuário e a senha.')
   else
   //validar senha tem no mínimo 6 caracteres
       if Length(password) < 6 then
-         ShowMessage('A senha conter no mínimo 6 caracteres')
+         ShowMessage('A senha deve conter no mínimo 6 caracteres.')
   else
     begin
       //validar senha

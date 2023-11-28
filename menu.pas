@@ -26,7 +26,6 @@ type
     passwordLabel: TLabel;
     loginGroup: TGroupBox;
     output: TMemo;
-    procedure buscarCEPGroupClick(Sender: TObject);
     procedure fetchBtnClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure loginBtnClick(Sender: TObject);
@@ -77,7 +76,7 @@ begin
                ShowMessage('O CEP deve ter 8 caracteres entre 0 e 9.')
    else
        begin
-          // buscar dados
+       // buscar dados
         fetchCEPData(CEP);
 
         if (json.FindPath('erro') = nil) then
@@ -102,11 +101,6 @@ begin
 
    // limpar TEdit
    CEPInput.Text := '';
-
-end;
-
-procedure TForm1.buscarCEPGroupClick(Sender: TObject);
-begin
 
 end;
 
